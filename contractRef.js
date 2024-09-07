@@ -1,5 +1,5 @@
-contractAddresss = "0x45FeA5CA4306403CA3337394e140783102142B51"
-contractAbi = [
+export const contractAddress = "0x45FeA5CA4306403CA3337394e140783102142B51";
+export const contractAbi = [
     {
         "anonymous": false,
         "inputs": [

@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
+import {getFanID} from "../utils.js"
+import { useEffect } from "react";
 
 export default function Landing() {
+
   return (
     <div className="min-h-screen flex flex-col bg-black text-black">
       <Navbar />
