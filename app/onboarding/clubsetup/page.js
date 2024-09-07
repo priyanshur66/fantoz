@@ -9,7 +9,7 @@ export default function clubsetup(){
             <div className="flex items-center justify-center">
               <div className="w-full max-w-4xl bg-neutral-300 text-black rounded-lg shadow-xl overflow-hidden mb-3">
                 <div className="p-6 border-b border-gray-700">
-                  <h2 className="text-5xl font-extrabold text-center">Club Setup</h2>
+                  <h2 className="text-5xl font-extrabold font-body text-center">Club Setup</h2>
                 </div>
                 <div className="p-6">
                   <div className="grid md:grid-cols-2 gap-6">

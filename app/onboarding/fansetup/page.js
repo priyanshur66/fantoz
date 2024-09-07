@@ -23,7 +23,7 @@ export default function Fansetup(){
             <div>
             <div className="w-full max-w-3xl mx-auto p-6 space-y-4 bg-neutral-300 shadow-md rounded-lg mb-3">
             <div className="p-3 border-b border-gray-700">
-                  <h2 className="text-5xl font-extrabold text-center text-black">Fan Setup</h2>
+                  <h2 className="text-5xl font-extrabold text-center font-body text-black">Fan Setup</h2>
                 </div>
       <div className="grid grid-cols-3 gap-4">
         {/* Left Section (Form Fields) */}
