@@ -1,9 +1,9 @@
 "use client";
 import { ethers, parseEther, parseUnits } from "ethers";
 import { contractAddress, contractAbi } from "../contractRef"
-let signer = null;
+export let signer = null;
 
-let provider;
+export let provider;
 export async function connectWithMetamask() {
     console.log("calling connect with metamask")
     if (window.ethereum == null) {
@@ -33,7 +33,7 @@ export async function getClubID() {
     const tx = await contract.clubUserAddressToClubId(signer.address);
     //await tx.wait();
     //console.log(tx.toString());
-    return tx.toString();
+    return Number(tx.toString());
 }
 
 export async function getFanID() {
@@ -48,5 +48,5 @@ export async function getFanID() {
     const tx = await contract.fanUserAddressToFanId(signer.address);
     //await tx.wait();
     //console.log(tx.toString());
-    return tx.toString();
+    return Number(tx.toString());
 }

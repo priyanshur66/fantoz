@@ -2,11 +2,42 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
-import {getFanID} from "../utils.js"
-import { useEffect } from "react";
+import { signer, provider, getFanID, getClubID } from "../utils.js"
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Landing() {
+  const [isFan, setIsFan] = useState()
+  const [isClub, setIsClub] = useState()
+  const router = useRouter()
+  useEffect(() => {
+    const checkUserType = async () => {
+      try {
+        const fanId = await getFanID()
+        const clubId = await getClubID()
+        if (fanId) {
+          console.log("fan id is ", fanId)
+          router.push("/fandrops")
+        } else if (clubId) {
+          console.log("club id is ", clubId)
+          router.push("/clubshome")
+        } else {
+          router.push("/onboarding")
+        }
+      } catch (error) {
+        console.log("error checking user type ", error)
+      }
 
+
+    }
+    checkUserType()
+
+  }, [router])
+
+
+  // if (isFan && isClub) {
+  //   router.push("/onboarding")
+  // }
   return (
     <div className="min-h-screen flex flex-col bg-black text-black">
       <Navbar />
@@ -15,12 +46,12 @@ export default function Landing() {
           <div className="container mx-auto px-6 flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0 mx-20">
               <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              We are transforming fan loyalty with blockchain-powered rewards
+                We are transforming fan loyalty with blockchain-powered rewards
               </h1>
               <p className="text-xl mb-8">
-              Unveiling Token-Gated Flash Drops, where fan tokens unlock exclusive, limited-time opportunities. Our platform bridges the gap between clubs and their most devoted supporters, offering unique rewards that recognize and celebrate fan commitment.
+                Unveiling Token-Gated Flash Drops, where fan tokens unlock exclusive, limited-time opportunities. Our platform bridges the gap between clubs and their most devoted supporters, offering unique rewards that recognize and celebrate fan commitment.
               </p>
-              
+
             </div>
 
             <div className="md:w-1/2">
@@ -53,8 +84,8 @@ export default function Landing() {
             <div className="flex justify-center space-x-4 mb-16">
               {['PSG', 'Inter', 'Napoli', 'Man City', 'Manchester'].map((team) => (
                 <div key={team} className="bg-white p-[0.10rem] rounded-full shadow-md">
-                  <Image src={`/logo3.png?text=${team}`} alt={`${team} logo`} width={80} height={80} 
-                  className="rounded-full"/>
+                  <Image src={`/logo3.png?text=${team}`} alt={`${team} logo`} width={80} height={80}
+                    className="rounded-full" />
                 </div>
               ))}
             </div>
@@ -85,7 +116,7 @@ export default function Landing() {
               <Link href="#" className="hover:text-gray-300">Contact</Link>
             </nav>
           </div>
-          
+
         </div>
       </footer>
     </div>
