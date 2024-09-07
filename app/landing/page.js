@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
@@ -19,14 +20,7 @@ export default function Landing() {
               <p className="text-xl mb-8">
               Unveiling Token-Gated Flash Drops, where fan tokens unlock exclusive, limited-time opportunities. Our platform bridges the gap between clubs and their most devoted supporters, offering unique rewards that recognize and celebrate fan commitment.
               </p>
-              <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <Link href="/clubsetup" className="bg-white text-black hover:text-white border border-black hover:border-white px-6 py-3 rounded-lg text-center font-semibold hover:bg-black transition duration-300">
-                  Club: Issue gated flash drops
-                </Link>
-                <Link href="/fansetup" className="bg-white text-black hover:text-white border border-black  px-6 hover:border-white py-3 rounded-lg text-center font-semibold hover:bg-black transition duration-300">
-                  Fan: Participate in flash sales for your clubs
-                </Link>
-              </div>
+              
             </div>
 
             <div className="md:w-1/2">

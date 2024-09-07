@@ -14,14 +14,19 @@ export default function Orderdetails(){
             </header>
         </div>
         <div className="flex border border-white bg-neutral-300 rounded p-2 space-x-32 mx-10 mt-10">
-            <div className="ml-20 border border-black px-16 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center">
+            <div className="ml-5 border border-black px-16 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center">
              Fan Name
             </div>
             <div className=" border border-black px-16 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center">
             Address
             </div>
-            <div className=" border border-black px-16 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center">
-            Tracking Link
+            <div className=" ">
+                
+            <input 
+                type="text" 
+                placeholder="Tracking Link"
+                className="border border-black px-16 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center placeholder-gray-600"
+            />
             </div>
         
             <button className=" border border-black px-16 py-2 bg-neutral-400 hover:bg-emerald-600 hover:text-white rounded-xl text-black font-bold text-center">
