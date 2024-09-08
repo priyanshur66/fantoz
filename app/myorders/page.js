@@ -28,7 +28,6 @@ export default function Myorders() {
           </div>
         </header>
       </div>
-
       {allOrders.map((order) => (
         <div className="w-full max-w-4xl mx-auto border border-gray-300 rounded-lg p-4 flex items-center justify-between">
 
@@ -41,17 +40,11 @@ export default function Myorders() {
 
             </div>
           </div>
-
-
           <div className="px-16 py-2 border rounded-md bg-gray-100">
             <span className="font-semibold text-black">Tracking Link</span>
           </div>
         </div>
       ))}
-
-
-
-
     </div>
   )
 }

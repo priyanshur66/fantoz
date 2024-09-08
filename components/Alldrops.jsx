@@ -36,6 +36,9 @@ export default function AllDropsCard({
     checkEligiblity();
   }, []);
 
+  const currentDate = new Date();
+  const startDateObj = new Date(startDate * 1000);
+
   return (
     <div className="flex flex-row items-center justify-between bg-neutral-400 p-4 py-5 rounded-lg ">
       <div className="w-20 h-20">
@@ -68,18 +71,18 @@ export default function AllDropsCard({
       </div>
 
       <div>
-        {itemsLeft && isEligibleForDrop == "false" ? (
+      {itemsLeft && currentDate > startDateObj ? (
           <button
             onClick={handlePlaceOrder}
             className="bg-emerald-600 border hover:border-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition"
           >
-            Buy
+          Buy
           </button>
-        ) : (
+            ) : (
           <button className="bg-red-600 border hover:border-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition">
-            Unavailable
+          Unavailable
           </button>
-        )}
+      )}
       </div>
     </div>
   );

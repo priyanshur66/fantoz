@@ -64,11 +64,11 @@ export default function Landing() {
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center mb-16">
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-4xl font-bold mb-2">Lund</h3>
+                <h3 className="text-4xl font-bold mb-2">5+</h3>
                 <p className="text-gray-600">Fan Tokens</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-4xl font-bold mb-2">1+</h3>
+                <h3 className="text-4xl font-bold mb-2">Chiliz</h3>
                 <p className="text-gray-600">Global Sports Partners</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
@@ -76,7 +76,7 @@ export default function Landing() {
                 <p className="text-gray-600">Ecosystem Users</p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-4xl font-bold mb-2">100+</h3>
+                <h3 className="text-4xl font-bold mb-2">Incoming</h3>
                 <p className="text-gray-600">Market Cap</p>
               </div>
             </div>
@@ -91,12 +91,13 @@ export default function Landing() {
             </div>
             <div className="bg-neutral-900 text-white p-8 rounded-lg flex flex-col md:flex-row items-center justify-between">
               <div className="md:w-1/2 mb-6 md:mb-0">
-                <h3 className="text-2xl font-bold mb-2">Chiliz</h3>
-                <p>Chiliz, founded in 2018, is a blockchain provider focused on the sports and entertainment industry. We build scalable, secure blockchain enabled solutions that supercharge fan experiences using digital assets.</p>
+                <h3 className="text-2xl font-bold mb-2">Fantoz : Fan token gated flash drops
+                </h3>
+                <p>Introducing Token-Gated Flash Drops on the Chiliz blockchain, where fan tokens unlock exclusive, time-sensitive opportunities. Leveraging the power of blockchain technology, our platform creates a secure and transparent connection between clubs and their most passionate supporters.</p>
               </div>
-              <div className="md:w-1/2 mb-6 md:pl-8">
-                <h3 className="text-2xl font-bold mb-2">CHZ</h3>
-                <p>CHZ is the native digital token for the Chiliz sports & entertainment ecosystem currently powering Socios.com, ChilizX and the Chiliz Chain.</p>
+              <div className="md:w-1/2 mb-6 md:pl-8 mt-10">
+                
+                <p> Fan tokens open the door to unique rewards, experiences, and merchandise, reserved only for the most dedicated. With Chiliz, fan loyalty is celebrated and rewarded like never before, bridging the gap between clubs and their communities through blockchain-powered exclusivity.</p>
               </div>
             </div>
           </div>
