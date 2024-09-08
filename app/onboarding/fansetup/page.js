@@ -18,7 +18,7 @@ export default function Fansetup() {
   const [fanTwitterHandle, setFanTwitterHandle] = useState("")
   const [deliveryAddress, setDeliveryAddress] = useState("")
   const [fanUserBio, setFanUserBio] = useState("")
-  const [fanUserProfileImage, setFanUserProfileImage] = useState("https://res.cloudinary.com/dopdbwaiw/image/upload/v1720991163/cld-sample-5.jpg");
+  const [fanUserProfileImage, setFanUserProfileImage] = useState("");
 
   const handleImageUpload = (event) => {
     const file = event.target.files?.[0];

@@ -72,7 +72,8 @@ export default function Drops() {
                         isEligible={"no"}
                         listingClubAddress={e[1]}
                         minimumFanTokenRequired={Number(String(e[3]))}
-                        price={String(e[8])} />)
+                        price={String(e[8])}
+                         />)
                 }
 
             </div>

@@ -150,6 +150,21 @@ export async function getFanTokenContractAddress(clubUserAddress) {
 }
 
 
+export async function getKayenPoolLink(clubUserAddress) {
+    await connectWithMetamask();
+    // console.log(signer.address);
+    const abi = contractAbi;
+    const address = contractAddress;
+    console.log(address);
+    // console.log(abi);
+    // console.log(provider);
+    const contract = new ethers.Contract(address, abi, provider);
+    const tx = await contract.getKayenPoolLink(clubUserAddress);
+    //await tx.wait();
+    //console.log(tx.toString());
+    return String(tx);
+
+}
 
 // writing contracts
 

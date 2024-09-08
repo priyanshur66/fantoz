@@ -1,6 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { placeOrder, checkDropEligiblity } from "../app/utils.js";
+import {
+  placeOrder,
+  checkDropEligiblity,
+  getKayenPoolLink,
+} from "../app/utils.js";
+
 export default function AllDropsCard({
   dropId,
   productImage,
@@ -14,7 +19,10 @@ export default function AllDropsCard({
 }) {
   const [itemsAvailable, setItemsAvailable] = useState(itemsLeft);
   const [isEligibleForDrop, setIsEligibleForDrop] = useState("false");
+  const [kayenPoolLink, setKayenPoolLink] = useState("");
+
   console.log(price);
+
   const handlePlaceOrder = async () => {
     const res = await placeOrder(dropId, price);
     console.log("Placing order for drop op", res);
@@ -25,16 +33,20 @@ export default function AllDropsCard({
 
   useEffect(() => {
     const checkEligiblity = async () => {
-      console.log("elogoblity cgheck called", minimumFanTokenRequired);
+      console.log("Eligibility check called", minimumFanTokenRequired);
       const res = await checkDropEligiblity(listingClubAddress);
-      console.log("is eligible for drop", res);
+      console.log("Is eligible for drop", res);
       if (res) {
-        console.log("chek", minimumFanTokenRequired, res);
-        if (minimumFanTokenRequired < res) setIsEligibleForDrop("true");
+        if (minimumFanTokenRequired < res) {
+          setIsEligibleForDrop("true");
+        }
+      } else {
+        const poolLink = await getKayenPoolLink(listingClubAddress);
+        setKayenPoolLink(poolLink);
       }
     };
     checkEligiblity();
-  }, []);
+  }, [listingClubAddress, minimumFanTokenRequired]);
 
   const currentDate = new Date();
   const startDateObj = new Date(startDate * 1000);
@@ -72,7 +84,7 @@ export default function AllDropsCard({
       </div>
 
       <div>
-        {itemsLeft &&
+        {itemsAvailable &&
         currentDate > startDateObj &&
         isEligibleForDrop == "true" ? (
           <button
@@ -81,6 +93,15 @@ export default function AllDropsCard({
           >
             Buy
           </button>
+        ) : isEligibleForDrop === "false" && kayenPoolLink ? (
+          <a
+            href={kayenPoolLink}
+            className="bg-blue-600 border hover:border-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Token Pool
+          </a>
         ) : (
           <button className="bg-red-600 border hover:border-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition">
             Unavailable
