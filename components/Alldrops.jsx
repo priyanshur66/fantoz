@@ -68,7 +68,7 @@ export default function AllDropsCard({
       </div>
 
       <div>
-        {itemsLeft && isEligibleForDrop != "false" ? (
+        {itemsLeft && isEligibleForDrop == "false" ? (
           <button
             onClick={handlePlaceOrder}
             className="bg-emerald-600 border hover:border-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition"

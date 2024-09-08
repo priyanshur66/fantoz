@@ -214,6 +214,7 @@ export async function listDrop(
     const abi = contractAbi;
     const address = contractAddress;
     const contract = new ethers.Contract(address, abi, signer);
+    const parsedPrice = parseEther(String(price))
     const tx = await contract.listDrop(
         dropName,
         minimumFanTokenRequired,
@@ -221,7 +222,7 @@ export async function listDrop(
         itemsLeft,
         dropStartDate,
         dropItemImage,
-        price
+        parsedPrice
     );
     console.log("drop creation status", tx);
     return tx
