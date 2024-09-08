@@ -51,6 +51,11 @@ export async function getFanID() {
     return Number(tx.toString());
 }
 
+
+
+
+// writing contracts
+
 export async function registerNewClubUser(
     officialClubName,
     officialInstagramHandle,
