@@ -44,42 +44,42 @@ export default function OrderDetails() {
 
             {allOrders.map((order) => (
                 <div key={order[0]}>
-                    <div className="flex border border-white bg-neutral-300 rounded p-2 space-x-30 mx-10 mt-10">
-                        <div className="ml-5 border border-black px-16 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center">
-                            {order[5]}
-                        </div>
-                        <div className="border border-black px-16 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center">
-                            {order[6]}
-                        </div>
-
-                        {!order[8] ? (
-                            <input
-                                value={trackingLinks[order[0]] || ""}
-                                onChange={(e) => handleTrackingLinkChange(order[0], e.target.value)}
-                                type="text"
-                                placeholder="Tracking Link"
-                                className="border border-black px-16 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center placeholder-gray-600"
-                            />
-                        ) : (
-                            <button className="border border-black px-16 py-2 bg-neutral-400 hover:bg-emerald-600 hover:text-white rounded-xl text-black font-bold text-center">
-                                Track Order
-                            </button>
-                        )}
-
-                        {!order[8] ? (
-                            <button
-                                onClick={() => handleFulfillOrder(order[0])}
-                                className="border border-black px-16 py-2 bg-neutral-400 hover:bg-emerald-600 hover:text-white rounded-xl text-black font-bold text-center"
-                            >
-                                Fulfill Order
-                            </button>
-                        ) : (
-                            <button className="border border-black px-16 py-2 bg-neutral-400 hover:bg-emerald-600 hover:text-white rounded-xl text-black font-bold text-center">
-                                Fulfilled
-                            </button>
-                        )}
+                <div className="flex border border-white bg-neutral-300 rounded p-2 space-x-2 mx-10 mt-10">
+                    <div className="flex-1 border border-black px-4 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center">
+                        {order[5]}
                     </div>
+                    <div className="flex-1 border border-black px-4 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center">
+                        {order[6]}
+                    </div>
+            
+                    {!order[8] ? (
+                        <input
+                            value={trackingLinks[order[0]] || ""}
+                            onChange={(e) => handleTrackingLinkChange(order[0], e.target.value)}
+                            type="text"
+                            placeholder="Track Order"
+                            className="flex-1 border border-black px-4 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center placeholder-gray-600"
+                        />
+                    ) : (
+                        <button className="flex-1 border border-black px-4 py-2 bg-neutral-400 hover:bg-emerald-600 hover:text-white rounded-xl text-black font-bold text-center">
+                            Track Order
+                        </button>
+                    )}
+            
+                    {!order[8] ? (
+                        <button
+                            onClick={() => handleFulfillOrder(order[0])}
+                            className="flex-1 border border-black px-4 py-2 bg-neutral-400 hover:bg-emerald-600 hover:text-white rounded-xl text-black font-bold text-center"
+                        >
+                            Fulfill Order
+                        </button>
+                    ) : (
+                        <button className="flex-1 border border-black px-4 py-2 bg-neutral-400 hover:bg-emerald-600 hover:text-white rounded-xl text-black font-bold text-center">
+                            Fulfilled
+                        </button>
+                    )}
                 </div>
+            </div>
             ))}
         </div>
     );
