@@ -60,7 +60,7 @@ export default function Fansetup() {
                   id="name"
                   type="text"
                   placeholder="Your name"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm text-black p-2"
                 />
               </div>
               <div>
@@ -74,7 +74,7 @@ export default function Fansetup() {
                   }}
                   id="bio"
                   placeholder="Tell us about yourself"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                  className="mt-1 block w-full border border-gray-300 rounded-md text-black shadow-sm p-2"
                 ></textarea>
               </div>
               <div>
@@ -89,7 +89,7 @@ export default function Fansetup() {
                   id="address"
                   type="text"
                   placeholder="Your address"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                  className="mt-1 block w-full border border-gray-300 rounded-md text-black shadow-sm p-2"
                 />
               </div>
               <div>
@@ -104,7 +104,7 @@ export default function Fansetup() {
                   id="instagram"
                   type="text"
                   placeholder="Your Instagram handle"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                  className="mt-1 block w-full border border-gray-300 rounded-md text-black shadow-sm p-2"
                 />
               </div>
               <div>
@@ -119,7 +119,7 @@ export default function Fansetup() {
                   id="twitter"
                   type="text"
                   placeholder="Your Twitter handle"
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+                  className="mt-1 block w-full border border-gray-300 rounded-md text-black shadow-sm p-2"
                 />
               </div>
             </div>
