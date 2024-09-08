@@ -54,10 +54,11 @@ export default function AllDropsCard({
       </div>
 
       <div className="text-black text-xl font-body text-center">
-        <span className="block font-semibold">{new Date(startDate * 1000).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric"
+        <span className="block font-semibold">
+          {new Date(startDate * 1000).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
           })}
         </span>
       </div>
@@ -71,18 +72,20 @@ export default function AllDropsCard({
       </div>
 
       <div>
-      {itemsLeft && currentDate > startDateObj ? (
+        {itemsLeft &&
+        currentDate > startDateObj &&
+        isEligibleForDrop == "true" ? (
           <button
             onClick={handlePlaceOrder}
             className="bg-emerald-600 border hover:border-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition"
           >
-          Buy
+            Buy
           </button>
-            ) : (
+        ) : (
           <button className="bg-red-600 border hover:border-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition">
-          Unavailable
+            Unavailable
           </button>
-      )}
+        )}
       </div>
     </div>
   );
