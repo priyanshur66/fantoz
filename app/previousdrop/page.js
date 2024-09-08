@@ -49,8 +49,8 @@ export default function Previousdrop() {
                     </div>
                 </header>
             </div>
-            {allOrders.map((e) => <div>
-                <div className="flex border border-white bg-neutral-300 rounded p-2 space-x-40 mx-10 mt-10">
+            {allOrders.map((e) => <div key={e[5]}>
+                <div  className="flex border border-white bg-neutral-300 rounded p-2 space-x-40 mx-10 mt-10">
                     <div className="ml-40 border border-black px-16 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center">
                         {e[5]}
                     </div>

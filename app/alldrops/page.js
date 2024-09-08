@@ -64,6 +64,7 @@ export default function Drops() {
             <div className="w-full max-w-7xl mt-10 mx-auto space-y-3 mb-5">
                 {
                     allDrops.map((e) => <AllDropsCard
+                    key={Number(String(e[0]))}
                         dropId={Number(String(e[0]))}
                         productImage={e[7]}
                         dropName={e[2]}
