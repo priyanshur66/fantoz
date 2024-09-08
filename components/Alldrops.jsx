@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { placeOrder } from "../app/utils.js";
 export default function AllDropsCard({
   dropId,
@@ -9,10 +10,14 @@ export default function AllDropsCard({
   isEligible,
   price,
 }) {
+  const [itemsAvailable, setItemsAvailable] = useState(itemsLeft);
   console.log(price);
   const handlePlaceOrder = async () => {
     const res = await placeOrder(dropId, price);
     console.log("Placing order for drop op", res);
+    if (res) {
+      setItemsAvailable(itemsAvailable - 1);
+    }
   };
   return (
     <div className="flex items-center justify-between bg-neutral-400 p-4 py-8 rounded-lg ">
@@ -23,7 +28,7 @@ export default function AllDropsCard({
           className="w-full h-full object-cover rounded-lg border-dashed border-black border-2"
         />
       </div>
-    
+
       <div className="text-black text-2xl text-center">
         <span className="block font-semibold">{dropName}</span>
       </div>
@@ -33,7 +38,7 @@ export default function AllDropsCard({
       </div>
 
       <div className="text-black text-2xl text-center">
-        <span className="block font-semibold">{itemsLeft}</span>
+        <span className="block font-semibold">{itemsAvailable}</span>
       </div>
 
       <div className="text-black text-2xl text-center">

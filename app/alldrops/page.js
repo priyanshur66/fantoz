@@ -39,27 +39,27 @@ export default function Drops() {
                 </header>
             </div>
             <div className="flex items-center justify-between bg-black border border-white p-4 py-2 rounded-lg mx-32">
-            <div className="text-white text-xl text-center">
-        <span className="block font-semibold">Image</span>
-      </div>
+                <div className="text-white text-xl text-center">
+                    <span className="block font-semibold">Image</span>
+                </div>
 
-      <div className="text-white text-xl text-center">
-        <span className="block font-semibold">Dropname</span>
-      </div>
+                <div className="text-white text-xl text-center">
+                    <span className="block font-semibold">Dropname</span>
+                </div>
 
-      <div className="text-white text-xl text-center">
-        <span className="block font-semibold">startDate</span>
-      </div>
+                <div className="text-white text-xl text-center">
+                    <span className="block font-semibold">startDate</span>
+                </div>
 
-      <div className="text-white text-xl text-center">
-        <span className="block font-semibold">itemsLeft</span>
-      </div>
-      <div className="text-white text-xl text-center">
-        <span className="block font-semibold">isEligible ?</span>
-      </div>
-      <div className="text-white text-xl text-center">
-        <span className="block font-semibold">Buy/Sell</span>
-      </div>
+                <div className="text-white text-xl text-center">
+                    <span className="block font-semibold">itemsLeft</span>
+                </div>
+                <div className="text-white text-xl text-center">
+                    <span className="block font-semibold">isEligible ?</span>
+                </div>
+                <div className="text-white text-xl text-center">
+                    <span className="block font-semibold">Buy/Sell</span>
+                </div>
             </div>
             <div className="w-full max-w-7xl mt-10 mx-auto space-y-3 mb-5">
                 {
@@ -72,11 +72,7 @@ export default function Drops() {
                         isEligible={"no"}
                         price={String(e[8])} />)
                 }
-                <AllDropsCard productImage={"https://res.cloudinary.com/dopdbwaiw/image/upload/v1720991163/cld-sample-5.jpg"}
-                    dropName={"drop1"}
-                    startDate={"25"}
-                    itemsLeft={"45"}
-                    isEligible={"no"} />
+
             </div>
         </div>
     )
