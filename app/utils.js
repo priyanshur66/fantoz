@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios"
 import { ethers, parseEther, parseUnits } from "ethers";
 import { contractAddress, contractAbi, fanTokenAbi } from "../contractRef"
 export let signer = null;
@@ -255,3 +256,33 @@ export async function fulfillOrder(
     return tx
 }
 
+// pinata 
+
+export const uploadToIPFS = async (file) => {
+    if (file) {
+        try {
+
+            const formData = new FormData();
+            formData.append("file", file);
+
+            const response = await axios({
+                method: "post",
+                url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
+                data: formData,
+                maxBodyLength: "Infinity",
+                headers: {
+                    pinata_api_key: process.env.NEXT_PUBLIC_PINATA_AIP_KEY,
+                    pinata_secret_api_key: process.env.NEXT_PUBLIC_PINATA_SECRECT_KEY,
+                    "Content-Type": "multipart/form-data",
+                },
+            });
+
+            const url = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
+
+            return url
+
+        } catch (error) {
+            console.log("error uploading to pinata")
+        }
+    }
+};

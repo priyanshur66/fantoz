@@ -65,7 +65,7 @@ export default function Drops() {
                 {
                     allDrops.map((e) => <AllDropsCard
                         dropId={Number(String(e[0]))}
-                        productImage={"https://res.cloudinary.com/dopdbwaiw/image/upload/v1720991163/cld-sample-5.jpg"}
+                        productImage={e[7]}
                         dropName={e[2]}
                         startDate={Number(String(e[6]))}
                         itemsLeft={Number(String(e[5]))}
