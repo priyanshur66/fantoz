@@ -213,6 +213,7 @@ contract Fantoz {
         return orderIdToOrder[_orderId];
     }
 
+
     function getAllDrops() public view returns (Drop[] memory) {
         Drop[] memory allDrops = new Drop[](dropId);
         for (uint256 i = 1; i <= dropId; i++) {
@@ -221,12 +222,35 @@ contract Fantoz {
         return allDrops;
     }
 
-   
-    function getAllOrders() public view returns (Order[] memory) {
-        Order[] memory allOrders = new Order[](orderId);
+     function getAllOrders() public view returns (Order[] memory) {
+        uint256 relevantOrderCount = 0;
+        
+        // First, count the number of relevant orders
         for (uint256 i = 1; i <= orderId; i++) {
-            allOrders[i - 1] = orderIdToOrder[i];
+            if (orderIdToOrder[i].listingClubAddress == msg.sender || 
+                orderIdToOrder[i].fanUserAddress == msg.sender) {
+                relevantOrderCount++;
+            }
         }
-        return allOrders;
+        
+     
+        Order[] memory relevantOrders = new Order[](relevantOrderCount);
+        
+        // Fill the array with relevant orders
+        uint256 currentIndex = 0;
+        for (uint256 i = 1; i <= orderId; i++) {
+            if (orderIdToOrder[i].listingClubAddress == msg.sender || 
+                orderIdToOrder[i].fanUserAddress == msg.sender) {
+                relevantOrders[currentIndex] = orderIdToOrder[i];
+                currentIndex++;
+            }
+        }
+        
+        return relevantOrders;
+    }
+     function getFanTokenContractAddress(address _clubUserAddress) public view returns (address) {
+        uint256 _clubId = clubUserAddressToClubId[_clubUserAddress];
+        require(_clubId != 0, "Club not found");
+        return clubIdToClub[_clubId].fanTokenContractAddress;
     }
 }
