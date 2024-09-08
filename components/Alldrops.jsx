@@ -51,7 +51,12 @@ export default function AllDropsCard({
       </div>
 
       <div className="text-black text-2xl text-center">
-        <span className="block font-semibold">{startDate}</span>
+        <span className="block font-semibold">{new Date(startDate * 1000).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+          })}
+        </span>
       </div>
 
       <div className="text-black text-2xl text-center">
