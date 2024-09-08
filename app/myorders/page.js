@@ -40,9 +40,15 @@ export default function Myorders() {
 
             </div>
           </div>
-          <div className="px-16 py-2 border rounded-md bg-gray-100">
-            <span className="font-semibold text-black">Tracking Link</span>
-          </div>
+          {order[8] ? <Link href={order[7]}>
+            <div className="px-16 py-2 border rounded-md bg-gray-100">
+
+              <span className="font-semibold text-black">Tracking Link</span>
+            </div></Link> :
+            <div className="px-16 py-2 border rounded-md bg-gray-100">
+
+              <span className="font-semibold text-black">Not Available</span>
+            </div>}
         </div>
       ))}
     </div>

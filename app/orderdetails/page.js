@@ -61,9 +61,10 @@ export default function OrderDetails() {
                                 className="flex-1 border border-black px-4 py-2 bg-neutral-400 rounded-xl text-black font-bold text-center placeholder-gray-600"
                             />
                         ) : (
-                            <button className="flex-1 border border-black px-4 py-2 bg-neutral-400 hover:bg-emerald-600 hover:text-white rounded-xl text-black font-bold text-center">
-                                Track Order
-                            </button>
+                            <Link href={order[7]}>
+                                <button className="flex-1 border border-black px-4 py-2 bg-neutral-400 hover:bg-emerald-600 hover:text-white rounded-xl text-black font-bold text-center">
+                                    Track Order
+                                </button></Link>
                         )}
 
                         {!order[8] ? (
