@@ -248,4 +248,9 @@ contract Fantoz {
         
         return relevantOrders;
     }
+     function getFanTokenContractAddress(address _clubUserAddress) public view returns (address) {
+        uint256 _clubId = clubUserAddressToClubId[_clubUserAddress];
+        require(_clubId != 0, "Club not found");
+        return clubIdToClub[_clubId].fanTokenContractAddress;
+    }
 }

@@ -1,5 +1,5 @@
 "use client"
-import { getAllOrders, getAllDrops } from "../utils.js"
+import { getAllOrders, getAllDrops, } from "../utils.js"
 import { useState, useEffect } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Link from "next/link";
@@ -58,7 +58,7 @@ export default function Drops() {
                     <span className="block font-semibold">isEligible ?</span>
                 </div>
                 <div className="text-white text-xl text-center">
-                    <span className="block font-semibold">Buy/Sell</span>
+                    <span className="block font-semibold">Buy</span>
                 </div>
             </div>
             <div className="w-full max-w-7xl mt-10 mx-auto space-y-3 mb-5">
@@ -70,6 +70,8 @@ export default function Drops() {
                         startDate={Number(String(e[6]))}
                         itemsLeft={Number(String(e[5]))}
                         isEligible={"no"}
+                        listingClubAddress={e[1]}
+                        minimumFanTokenRequired={Number(String(e[3]))}
                         price={String(e[8])} />)
                 }
 

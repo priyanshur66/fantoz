@@ -1,6 +1,6 @@
 "use client";
 import { ethers, parseEther, parseUnits } from "ethers";
-import { contractAddress, contractAbi } from "../contractRef"
+import { contractAddress, contractAbi, fanTokenAbi } from "../contractRef"
 export let signer = null;
 
 export let provider;
@@ -66,6 +66,21 @@ export async function getFanID() {
 //     return tx;
 // }
 
+export async function getAllDrops() {
+    await connectWithMetamask();
+    // console.log(signer.address);
+    const abi = contractAbi;
+    const address = contractAddress;
+    console.log(address);
+    // console.log(abi);
+    // console.log(provider);
+    const contract = new ethers.Contract(address, abi, provider);
+    const tx = await contract.getAllDrops();
+    //await tx.wait();
+    //console.log(tx.toString());
+    return tx;
+}
+
 export async function getAllOrders() {
     try {
 
@@ -98,8 +113,41 @@ export async function getAllOrders() {
         console.error("Error in getAllOrders:", error);
         throw error;
     }
-  
+
 }
+
+export async function checkDropEligiblity(clubUserAddress) {
+    await connectWithMetamask();
+    // console.log(signer.address);
+    const abi = fanTokenAbi;
+    const address = await getFanTokenContractAddress(clubUserAddress);
+    console.log("fan token contract add", address);
+    // console.log(abi);
+    // console.log(provider);
+    const contract = new ethers.Contract(address, abi, provider);
+    const tx = await contract.balanceOf(signer.address);
+    //await tx.wait();
+    //console.log(tx.toString());
+    return Number(String(tx));
+
+}
+
+export async function getFanTokenContractAddress(clubUserAddress) {
+    await connectWithMetamask();
+    // console.log(signer.address);
+    const abi = contractAbi;
+    const address = contractAddress;
+    console.log(address);
+    // console.log(abi);
+    // console.log(provider);
+    const contract = new ethers.Contract(address, abi, provider);
+    const tx = await contract.getFanTokenContractAddress(clubUserAddress);
+    //await tx.wait();
+    //console.log(tx.toString());
+    return String(tx);
+
+}
+
 
 
 // writing contracts
@@ -205,3 +253,4 @@ export async function fulfillOrder(
     console.log("order placing status status", tx);
     return tx
 }
+
