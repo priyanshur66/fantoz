@@ -37,7 +37,7 @@ export default function AllDropsCard({
   }, []);
 
   return (
-    <div className="flex items-center justify-between bg-neutral-400 p-4 py-8 rounded-lg ">
+    <div className="flex flex-row items-center justify-between bg-neutral-400 p-4 py-5 rounded-lg ">
       <div className="w-20 h-20">
         <img
           src={productImage}
@@ -46,11 +46,11 @@ export default function AllDropsCard({
         />
       </div>
 
-      <div className="text-black text-2xl text-center">
+      <div className="text-black text-xl font-body text-center">
         <span className="block font-semibold">{dropName}</span>
       </div>
 
-      <div className="text-black text-2xl text-center">
+      <div className="text-black text-xl font-body text-center">
         <span className="block font-semibold">{new Date(startDate * 1000).toLocaleDateString("en-US", {
           year: "numeric",
           month: "long",
@@ -59,11 +59,11 @@ export default function AllDropsCard({
         </span>
       </div>
 
-      <div className="text-black text-2xl text-center">
+      <div className="text-black text-xl font-body text-center">
         <span className="block font-semibold">{itemsAvailable}</span>
       </div>
 
-      <div className="text-black text-2xl text-center">
+      <div className="text-black text-xl font-body text-center">
         <span className="block font-semibold">{isEligibleForDrop}</span>
       </div>
 
