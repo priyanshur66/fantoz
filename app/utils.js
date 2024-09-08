@@ -50,3 +50,53 @@ export async function getFanID() {
     //console.log(tx.toString());
     return Number(tx.toString());
 }
+
+export async function registerNewClubUser(
+    officialClubName,
+    officialInstagramHandle,
+    officialTwitterHandle,
+    officialAnnouncementChannel,
+    officialFanTokenChannel,
+    kayenPoolLink,
+    fanTokenContractAddress,
+    clubUserProfileImage
+) {
+    const abi = contractAbi;
+    const address = contractAddress;
+    const contract = new ethers.Contract(address, abi, signer);
+    const tx = await contract.registerNewClub(
+        officialClubName,
+        officialInstagramHandle,
+        officialTwitterHandle,
+        officialAnnouncementChannel,
+        officialFanTokenChannel,
+        kayenPoolLink,
+        fanTokenContractAddress,
+        clubUserProfileImage
+    );
+    console.log("club creation status", tx);
+    return tx
+}
+
+export async function registerNewFan(
+    fullName,
+    fanInstagramHandle,
+    fanTwitterHandle,
+    deliveryAddress,
+    fanUserBio,
+    fanUserProfileImage
+) {
+    const abi = contractAbi;
+    const address = contractAddress;
+    const contract = new ethers.Contract(address, abi, signer);
+    const tx = await contract.registerNewFan(
+        fullName,
+        fanInstagramHandle,
+        fanTwitterHandle,
+        deliveryAddress,
+        fanUserBio,
+        fanUserProfileImage
+    );
+    console.log("fan creation status", tx);
+    return tx
+}
