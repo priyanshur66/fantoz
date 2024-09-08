@@ -38,7 +38,30 @@ export default function Drops() {
                     </div>
                 </header>
             </div>
-            <div className="w-full max-w-7xl mt-10 mx-auto space-y-4">
+            <div className="flex items-center justify-between bg-black border border-white p-4 py-2 rounded-lg mx-32">
+            <div className="text-white text-xl text-center">
+        <span className="block font-semibold">Image</span>
+      </div>
+
+      <div className="text-white text-xl text-center">
+        <span className="block font-semibold">Dropname</span>
+      </div>
+
+      <div className="text-white text-xl text-center">
+        <span className="block font-semibold">startDate</span>
+      </div>
+
+      <div className="text-white text-xl text-center">
+        <span className="block font-semibold">itemsLeft</span>
+      </div>
+      <div className="text-white text-xl text-center">
+        <span className="block font-semibold">isEligible ?</span>
+      </div>
+      <div className="text-white text-xl text-center">
+        <span className="block font-semibold">Buy/Sell</span>
+      </div>
+            </div>
+            <div className="w-full max-w-7xl mt-10 mx-auto space-y-3 mb-5">
                 {
                     allDrops.map((e) => <AllDropsCard
                         dropId={Number(String(e[0]))}

@@ -15,7 +15,7 @@ export default function AllDropsCard({
     console.log("Placing order for drop op", res);
   };
   return (
-    <div className="flex items-center justify-between bg-neutral-400 p-4 py-8 rounded-lg">
+    <div className="flex items-center justify-between bg-neutral-400 p-4 py-8 rounded-lg ">
       <div className="w-20 h-20">
         <img
           src={productImage}
@@ -23,7 +23,7 @@ export default function AllDropsCard({
           className="w-full h-full object-cover rounded-lg border-dashed border-black border-2"
         />
       </div>
-
+    
       <div className="text-black text-2xl text-center">
         <span className="block font-semibold">{dropName}</span>
       </div>
@@ -44,12 +44,12 @@ export default function AllDropsCard({
         {itemsLeft ? (
           <button
             onClick={handlePlaceOrder}
-            className="bg-green-500 text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition"
+            className="bg-emerald-600 border hover:border-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition"
           >
             Buy
           </button>
         ) : (
-          <button className="bg-red-500 text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition">
+          <button className="bg-red-600 border hover:border-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition">
             Sold out
           </button>
         )}

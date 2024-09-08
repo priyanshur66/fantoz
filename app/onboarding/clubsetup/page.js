@@ -31,6 +31,20 @@ export default function clubsetup() {
       router.push("/clubshome")
     }
   }
+
+  const [previewUrl, setPreviewUrl] = useState('');
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewUrl(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black p-2">
       <Navbar />
@@ -72,17 +86,31 @@ export default function clubsetup() {
                   <label htmlFor="fanTokenContract" className="block text-md font-medium">Fan token contract address</label>
                   <input id="fanTokenContract" placeholder="Contract address" className="w-full px-3 py-2 bg-white rounded-md focus:outline-none focus:ring-1 focus:ring-black" value={fanTokenContractAddress} onChange={(e) => { setFanTokenContractAddress(e.target.value) }} />
                 </div>
-                <div className="flex-1 space-y-4">
-                  <div className="border-2 border-dashed border-gray-600 rounded-lg p-4 text-center">
-                    <label htmlFor="clubPic" className="cursor-pointer">
-                      <upload className="mx-auto h-12 w-12 text-gray-400" />
-                      <span className="mt-2 block text-md font-medium text-gray-400">
-                        Upload Club Logo
-                      </span>
-                      <input id="clubPic" type="file" accept="image/*" className="hidden" />
-                    </label>
-                  </div>
-                </div>
+                 <div className="flex-1 space-y-4">
+                 Upload Club Logo
+      <div className="border-2 border-dashed border-gray-600 rounded-lg p-4 text-center">
+        <label htmlFor="clubPic" className="cursor-pointer">
+          
+          {previewUrl ? (
+            <img src={previewUrl} alt="Club Logo" className="mx-auto h-32 w-32 object-cover" />
+          ) : (
+            <>
+              <upload className="mx-auto h-12 w-12 text-gray-400" />
+              <span className="mt-2 block text-sm font-medium text-gray-400">
+                Upload Club Logo
+              </span>
+            </>
+          )}
+          <input
+            id="clubPic"
+            type="file"
+            accept="image/*"
+            className="hidden"
+            onChange={handleFileChange}
+          />
+        </label>
+      </div>
+    </div>
               </div>
             </div>
           </div>
