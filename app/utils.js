@@ -100,3 +100,28 @@ export async function registerNewFan(
     console.log("fan creation status", tx);
     return tx
 }
+
+export async function listDrop(
+    dropName,
+    minimumFanTokenRequired,
+    totalItemQuantity,
+    itemsLeft,
+    dropStartDate,
+    dropItemImage,
+    price
+) {
+    const abi = contractAbi;
+    const address = contractAddress;
+    const contract = new ethers.Contract(address, abi, signer);
+    const tx = await contract.listDrop(
+        dropName,
+        minimumFanTokenRequired,
+        totalItemQuantity,
+        itemsLeft,
+        dropStartDate,
+        dropItemImage,
+        price
+    );
+    console.log("drop creation status", tx);
+    return tx
+}
