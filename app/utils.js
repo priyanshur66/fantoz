@@ -51,7 +51,35 @@ export async function getFanID() {
     return Number(tx.toString());
 }
 
+export async function getAllOrders() {
+    await connectWithMetamask();
+    // console.log(signer.address);
+    const abi = contractAbi;
+    const address = contractAddress;
+    console.log(address);
+    // console.log(abi);
+    // console.log(provider);
+    const contract = new ethers.Contract(address, abi, provider);
+    const tx = await contract.getAllOrders();
+    //await tx.wait();
+    //console.log(tx.toString());
+    return tx;
+}
 
+export async function getAllDrops() {
+    await connectWithMetamask();
+    // console.log(signer.address);
+    const abi = contractAbi;
+    const address = contractAddress;
+    console.log(address);
+    // console.log(abi);
+    // console.log(provider);
+    const contract = new ethers.Contract(address, abi, provider);
+    const tx = await contract.getAllDrops();
+    //await tx.wait();
+    //console.log(tx.toString());
+    return tx;
+}
 
 
 // writing contracts
@@ -128,5 +156,32 @@ export async function listDrop(
         price
     );
     console.log("drop creation status", tx);
+    return tx
+}
+
+export async function placeOrder(
+    dropId, price
+) {
+    const abi = contractAbi;
+    const address = contractAddress;
+    const contract = new ethers.Contract(address, abi, signer);
+    const tx = await contract.placeOrder(
+        dropId, {
+        value: price,
+    }
+    );
+    console.log("order placing status status", tx);
+    return tx
+}
+
+export async function fulfillOrder(
+    orderId, trackingLink
+) {
+    const abi = contractAbi;
+    const address = contractAddress;
+    const contract = new ethers.Contract(address, abi, signer);
+    const tx = await contract.fulfillOrder(
+        orderId, trackingLink)
+    console.log("order placing status status", tx);
     return tx
 }

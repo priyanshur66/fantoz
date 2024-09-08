@@ -1,32 +1,59 @@
-export default function AllDropsCard(){
-    return(
-        <div className="flex items-center justify-between bg-neutral-400 p-4 py-8 rounded-lg">
-  
+"use client";
+import { placeOrder } from "../app/utils.js";
+export default function AllDropsCard({
+  dropId,
+  productImage,
+  dropName,
+  startDate,
+  itemsLeft,
+  isEligible,
+  price,
+}) {
+  console.log(price);
+  const handlePlaceOrder = async () => {
+    const res = await placeOrder(dropId, price);
+    console.log("Placing order for drop op", res);
+  };
+  return (
+    <div className="flex items-center justify-between bg-neutral-400 p-4 py-8 rounded-lg">
       <div className="w-20 h-20">
-        <img src="/" alt="item image" className="w-full h-full object-cover rounded-lg border-dashed border-black border-2" />
+        <img
+          src={productImage}
+          alt="item image"
+          className="w-full h-full object-cover rounded-lg border-dashed border-black border-2"
+        />
       </div>
 
       <div className="text-black text-2xl text-center">
-        <span className="block font-semibold">Drop Name</span>
+        <span className="block font-semibold">{dropName}</span>
       </div>
 
       <div className="text-black text-2xl text-center">
-        <span className="block font-semibold">Start Date</span>
+        <span className="block font-semibold">{startDate}</span>
       </div>
 
       <div className="text-black text-2xl text-center">
-        <span className="block font-semibold">Items Left</span>
+        <span className="block font-semibold">{itemsLeft}</span>
       </div>
 
       <div className="text-black text-2xl text-center">
-        <span className="block font-semibold">Is Eligible</span>
+        <span className="block font-semibold">{isEligible}</span>
       </div>
 
       <div>
-        <button className="bg-black text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition">
-          Buy
-        </button>
+        {itemsLeft ? (
+          <button
+            onClick={handlePlaceOrder}
+            className="bg-green-500 text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition"
+          >
+            Buy
+          </button>
+        ) : (
+          <button className="bg-red-500 text-white font-semibold hover:text-black px-8 py-2 rounded-lg hover:bg-white transition">
+            Sold out
+          </button>
+        )}
       </div>
     </div>
-    )
+  );
 }
