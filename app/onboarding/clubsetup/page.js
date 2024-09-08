@@ -6,7 +6,7 @@ import { useState } from "react"
 import { useRouter } from "next/navigation";
 import { registerNewClubUser } from "../../utils.js"
 
-export default function Clubsetup() {
+export default function clubsetup() {
   const router = useRouter()
   // officialClubName,
   // officialInstagramHandle,
